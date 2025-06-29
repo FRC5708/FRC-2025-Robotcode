@@ -6,7 +6,6 @@ package frc.robot.commands.autonCommands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
-import frc.robot.commands.checkPhotoeye;
 import frc.robot.subsystems.CoralSubsystem;
 import frc.robot.subsystems.ElevatorSubsystem;
 

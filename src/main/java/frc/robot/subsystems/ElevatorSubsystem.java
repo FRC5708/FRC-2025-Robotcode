@@ -5,13 +5,10 @@
 package frc.robot.subsystems;
 
 import frc.robot.Constants;
-import frc.robot.commands.coralPlace;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.subsystems.CoralSubsystem;
-import frc.robot.commands.coralPlace;
 
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.RelativeEncoder;
