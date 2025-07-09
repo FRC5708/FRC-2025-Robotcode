@@ -66,6 +66,7 @@ public class ElevatorSubsystem extends SubsystemBase {
   public void elevatorUpFast(double power) {
     if (input.get()) {
       elevatorMotor1.set(power);
+      elevatorMotor2.set(power);
       System.out.println("Elevator Up Power Motor; " + power);
     } else {
       System.out.println("Elevator Blocked By Coral");

@@ -94,13 +94,13 @@ public class RobotContainer {
     m_driverController.a().whileTrue(new coralPlace(m_coral, 0.3));
     m_driverController.b().whileTrue(new coralReversePlace(m_coral, -0.1));
 
+    // pov equals dpad
     m_driverController.povUp().onTrue(new changePoint(m_elevator, 1));
     m_driverController.povDown().onTrue(new changePoint(m_elevator, -1));
     m_driverController.povLeft().onTrue(new Cooked(m_elevator));
     m_driverController.povRight().onTrue(new resetEncoder(m_elevator));
 
     // Creep mode means it drives slower
-    // pov equals dpad
     m_driverController.leftStick().whileTrue(new creepMode(m_drive));
   }
 
