@@ -79,7 +79,7 @@ public class ElevatorSubsystem extends SubsystemBase {
   public void elevatorStop()
   {
     setSpeed(0);
-    targetPos = calculatePID();
+    targetPos = getPosition();
   }
 
   public boolean checkPhotoeye() {
