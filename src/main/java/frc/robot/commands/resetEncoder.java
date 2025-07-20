@@ -21,6 +21,6 @@ public class resetEncoder extends InstantCommand {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_elevator.resetEnc();
+    m_elevator.resetEncoder();
   }
 }

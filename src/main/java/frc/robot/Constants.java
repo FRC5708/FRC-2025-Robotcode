@@ -38,7 +38,7 @@ public final class Constants {
     public static final double millisDownL4 = 2100;
     public static final double millisToSpit = 250;
     public static final double millisToIntake = 800; 
-    public static final double ticksShootL1 = 5;
+    public static final double ticksToL1 = 5;
     public static final double ticksToL2 = 17.119016647338867;
     public static final double ticksToL3 = 35.99966049194336;
     public static final double ticksToL4 = 66.810821533203125; // added 3

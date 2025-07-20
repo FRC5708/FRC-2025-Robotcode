@@ -1,19 +1,16 @@
-// // Copyright (c) FIRST and other WPILib contributors.
-// // Open Source Software; you can modify and/or share it under the terms of
-// // the WPILib BSD license file in the root directory of this project.
-
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.ElevatorSubsystem;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class travelToSetpoint extends Command {
+public class changeSetpoint extends Command {
+  int m_level = 0;
   /** Creates a new travelToSetpoint. */
   private ElevatorSubsystem m_elevator;
-  public travelToSetpoint(ElevatorSubsystem elevator) {
+  public changeSetpoint(ElevatorSubsystem elevator, int level) {
     m_elevator = elevator;
-    addRequirements(m_elevator);
+    m_level = level;
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -24,7 +21,23 @@ public class travelToSetpoint extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-        m_elevator.travelToSetpoint();
+      switch (m_level) {
+        case 1:
+          m_elevator.moveToL1();
+          break;
+        case 2:
+          m_elevator.moveToL2();
+          break;
+        case 3:
+          m_elevator.moveToL3();
+          break;
+        case 4:
+          m_elevator.moveToL4();
+          break;
+        default:
+          m_elevator.moveToL0();
+          break;
+      }
     }
 
 

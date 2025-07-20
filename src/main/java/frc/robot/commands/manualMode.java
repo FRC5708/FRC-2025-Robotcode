@@ -1,20 +1,12 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.ElevatorSubsystem;
 
-public class elevatorHold extends Command {
+public class manualMode extends Command {
   private ElevatorSubsystem m_elevator;
-  private double m_power;
-  public elevatorHold(ElevatorSubsystem elevator, double power) {
+  public manualMode(ElevatorSubsystem elevator) {
     m_elevator = elevator;
-    m_power = power;
-    addRequirements(m_elevator);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -25,14 +17,13 @@ public class elevatorHold extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_elevator.elevatorHold(m_power);
-    SmartDashboard.putNumber("encoder position",m_elevator.getPosition());
+    m_elevator.manualModeToggle();
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_elevator.elevatorHold(0);
+    m_elevator.checkPhotoeye();
   }
 
   // Returns true when the command should end.

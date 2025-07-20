@@ -3,13 +3,12 @@ package frc.robot;
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.commands.elevatorUp;
 import frc.robot.commands.elevatorUpFast;
+import frc.robot.commands.manualMode;
 import frc.robot.commands.resetEncoder;
-import frc.robot.commands.travelToSetpoint;
 import frc.robot.commands.elevatorDown;
-import frc.robot.commands.elevatorHold;
 import frc.robot.subsystems.CoralSubsystem;
-import frc.robot.commands.Cooked;
-import frc.robot.commands.changePoint;
+import frc.robot.commands.changeSetpoint;
+import frc.robot.commands.travelToSetpoint;
 import frc.robot.commands.checkPhotoeye;
 import frc.robot.commands.coralPlace;
 import frc.robot.commands.coralReversePlace;
@@ -17,8 +16,8 @@ import frc.robot.commands.creepMode;
 import frc.robot.commands.autonCommands.IntakeCoral;
 import frc.robot.commands.autonCommands.SpitCoral;
 import frc.robot.commands.autonCommands.elevatorUpAuton;
-import frc.robot.commands.autonCommands.goToL1_from_L4;
-import frc.robot.commands.autonCommands.goToPoint;
+// import frc.robot.commands.autonCommands.goToL1_from_L4;
+// import frc.robot.commands.autonCommands.goToPoint;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.subsystems.DriveSubsystem;
@@ -45,20 +44,18 @@ public class RobotContainer {
     m_elevator = new ElevatorSubsystem();
     m_coral = new CoralSubsystem();
     // m_sensor = new SensorSubsystem();
-    NamedCommands.registerCommand("toL4", new goToPoint(m_elevator, 3));
-    NamedCommands.registerCommand("toL3", new goToPoint(m_elevator, 2));
-    NamedCommands.registerCommand("toL2", new goToPoint(m_elevator, 1));
-    NamedCommands.registerCommand("toL1", new goToPoint(m_elevator, 0));
-    NamedCommands.registerCommand("shootL1", new goToPoint(m_elevator, 10));
-    NamedCommands.registerCommand("downFromL4", new goToL1_from_L4(m_elevator, 0));
+
+    // NamedCommands.registerCommand("toL4", new goToPoint(m_elevator, 3));
+    // NamedCommands.registerCommand("toL3", new goToPoint(m_elevator, 2));
+    // NamedCommands.registerCommand("toL2", new goToPoint(m_elevator, 1));
+    // NamedCommands.registerCommand("toL1", new goToPoint(m_elevator, 0));
+    // NamedCommands.registerCommand("shootL1", new goToPoint(m_elevator, 10));
+    // NamedCommands.registerCommand("downFromL4", new goToL1_from_L4(m_elevator, 0));
     NamedCommands.registerCommand("intakeCoral", new IntakeCoral(m_coral, m_elevator));
     NamedCommands.registerCommand("spitCoral", new SpitCoral(m_coral, m_elevator));
     NamedCommands.registerCommand("elevatorUp", new elevatorUpAuton(m_elevator, 0.3));
     NamedCommands.registerCommand("elevatorUpFast", new elevatorUpFast(m_elevator, 0.6));
     NamedCommands.registerCommand("elevatorDown", new elevatorDown(m_elevator, -0.4));
-    NamedCommands.registerCommand("elevatorHold", new elevatorHold(m_elevator, 0.03));
-    NamedCommands.registerCommand("upOne", new changePoint(m_elevator, 1));
-    NamedCommands.registerCommand("downOne", new changePoint(m_elevator, -1));
     NamedCommands.registerCommand("Coral Place", new coralPlace(m_coral, 0.2));
     NamedCommands.registerCommand("Coral Reverse Place", new coralReversePlace(m_coral, -0.2));
     NamedCommands.registerCommand("Creep Mode", new creepMode(m_drive));
@@ -94,11 +91,15 @@ public class RobotContainer {
     m_driverController.a().whileTrue(new coralPlace(m_coral, 0.3));
     m_driverController.b().whileTrue(new coralReversePlace(m_coral, -0.1));
 
+    m_driverController.y().onTrue(new manualMode(m_elevator));
+    
     // pov equals dpad
-    m_driverController.povUp().onTrue(new changePoint(m_elevator, 1));
-    m_driverController.povDown().onTrue(new changePoint(m_elevator, -1));
-    m_driverController.povLeft().onTrue(new Cooked(m_elevator));
-    m_driverController.povRight().onTrue(new resetEncoder(m_elevator));
+    m_driverController.x().onTrue(new changeSetpoint(m_elevator, 0));
+    m_driverController.povUp().onTrue(new changeSetpoint(m_elevator, 1));
+    m_driverController.povRight().onTrue(new changeSetpoint(m_elevator, 2));
+    m_driverController.povDown().onTrue(new changeSetpoint(m_elevator, 3));
+    m_driverController.povLeft().onTrue(new changeSetpoint(m_elevator, 4));
+
 
     // Creep mode means it drives slower
     m_driverController.leftStick().whileTrue(new creepMode(m_drive));
