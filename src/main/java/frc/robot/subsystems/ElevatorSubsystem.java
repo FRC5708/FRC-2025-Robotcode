@@ -21,16 +21,18 @@ public class ElevatorSubsystem extends SubsystemBase {
   private RelativeEncoder encoder1 = elevatorMotor1.getEncoder();
   private RelativeEncoder encoder2 = elevatorMotor2.getEncoder();
 
-  private PIDController m_pid = new PIDController(0.04, 0,0.01);
+  private PIDController m_pid = new PIDController(0.2, 0,0.01);
 
   private double targetPos = 0.0;
   private boolean manualMode;
+  private int i = 0;
   // private int desiredPoint = 0;
   // private double driveSpeed = 0.5;
 
   DigitalInput input = new DigitalInput(1);
 
   public ElevatorSubsystem() {
+    i = 0;
     m_pid.setTolerance(0.3);
     resetEncoder();
     elevatorStop();
@@ -47,28 +49,28 @@ public class ElevatorSubsystem extends SubsystemBase {
     elevatorMotor2.set(-speed); //This way you can set them both at once 
   } 
   
-  public void elevatorUp(double power) {
+  public void elevatorUp(double speed) {
     if (input.get()) {
-      setSpeed(power);
-      System.out.println("Elevator Up Power: " + power);
+      setSpeed(speed);
+      //System.out.println("Elevator Up Speed: " + speed);
     } else {
       System.out.println("Elevator Blocked By Coral");
     }
   }
 
-  public void elevatorUpFast(double power) {
+  public void elevatorUpFast(double speed) {
     if (input.get()) {
-      setSpeed(power);
-      System.out.println("Elevator Up Power Motor; " + power);
+      setSpeed(speed);
+      //System.out.println("Elevator Up Speed Motor; " + speed);
     } else {
       System.out.println("Elevator Blocked By Coral");
 
     }
   }
 
-  public void elevatorDown(double power) {
-    setSpeed(power);
-    System.out.println("Elevator Down Power: " + power);
+  public void elevatorDown(double speed) {
+    setSpeed(speed);
+    System.out.println("Elevator Down Speed: " + speed);
   }
 
   public void elevatorHold() {
@@ -90,7 +92,7 @@ public class ElevatorSubsystem extends SubsystemBase {
   }
 
   public void moveToL0(){
-    targetPos = 0;
+    targetPos = 2;
   }
 
   public void moveToL1(){
@@ -109,7 +111,8 @@ public class ElevatorSubsystem extends SubsystemBase {
     targetPos = Constants.NonChassis.ticksToL4;
   }
 
-public void resetEncoder() {
+//encoder and PID are same number
+  public void resetEncoder() {
   encoder1.setPosition(0.2);
   encoder2.setPosition(0.2);
 }
@@ -123,8 +126,15 @@ public double getPositionEncoder2() {
 }
 
 public void travelToSetpoint() {
+  i+=1;
+  SmartDashboard.putBoolean("Manual Mode", manualMode);
+  SmartDashboard.putNumber("Counter", i);
   if (!manualMode){
-    setSpeed(m_pid.calculate(getPosition(), targetPos));
+    double speed = m_pid.calculate(getPosition(), targetPos);
+    setSpeed(speed);
+    SmartDashboard.putNumber("Elevator Speed", speed);
+    SmartDashboard.putNumber("PID position", getPosition());
+    SmartDashboard.putNumber("Target", targetPos);
   }
   else {
     elevatorHold();
@@ -134,7 +144,6 @@ public void travelToSetpoint() {
 public void manualModeToggle() {
   manualMode = !manualMode;
 }
-
   public double calculatePID() {
     return m_pid.calculate(getPosition());
   }

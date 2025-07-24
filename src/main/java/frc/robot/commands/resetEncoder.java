@@ -23,4 +23,14 @@ public class resetEncoder extends InstantCommand {
   public void initialize() {
     m_elevator.resetEncoder();
   }
+
+  @Override
+  public void end(boolean interrupted) {
+  }
+
+  // Returns true when the command should end.
+  @Override
+  public boolean isFinished() {
+    return false;
+  }
 }
