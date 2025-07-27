@@ -9,10 +9,8 @@ import frc.robot.subsystems.ElevatorSubsystem;
 
 public class elevatorStop extends Command {
   private ElevatorSubsystem m_elevator;
-  private double m_power;
-  public elevatorStop(ElevatorSubsystem elevator, double power) {
+  public elevatorStop(ElevatorSubsystem elevator) {
     m_elevator = elevator;
-    m_power = power;
     addRequirements(m_elevator);
     // Use addRequirements() here to declare subsystem dependencies.
   }
