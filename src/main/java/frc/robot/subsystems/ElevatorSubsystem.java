@@ -77,8 +77,8 @@ public class ElevatorSubsystem extends SubsystemBase {
   }
 
   private boolean coralBlockingElevator() {
-    return input.get();
-    //return false;
+    //return input.get();
+    return false;
   }
 
   public void elevatorUpFast(double speed) {
