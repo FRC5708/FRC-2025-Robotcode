@@ -149,23 +149,22 @@ public double getPositionEncoder2() {
 
 public void travelToSetpoint() {
   i+=1;
+  boolean coralBlockingElevator = coralBlockingElevator();
+  double speed = m_pid.calculate(getPosition(), targetPos);
   SmartDashboard.putBoolean("Manual Mode", manualMode);
   SmartDashboard.putNumber("Counter", i);
+  SmartDashboard.putBoolean("Photoeye", coralBlockingElevator);
   if (!manualMode){
-    double speed = m_pid.calculate(getPosition(), targetPos);
-    if(!coralBlockingElevator()) {
+    if(!coralBlockingElevator) {
       setSpeed(speed);
     }
-    else {
-      System.out.println("Elevator Blocked By Coral");
-    }
-    SmartDashboard.putNumber("Elevator Speed", speed);
-    SmartDashboard.putNumber("PID position", getPosition());
-    SmartDashboard.putNumber("Target", targetPos);
   }
   else {
     elevatorHold();
   }
+  SmartDashboard.putNumber("Elevator Speed", speed);
+  SmartDashboard.putNumber("PID position", getPosition());
+  SmartDashboard.putNumber("Target", targetPos);
 }
 
 public void manualModeToggle() {
