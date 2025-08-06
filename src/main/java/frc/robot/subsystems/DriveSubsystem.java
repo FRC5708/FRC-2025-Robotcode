@@ -107,8 +107,8 @@ public class DriveSubsystem extends SubsystemBase {
     m_field.setRobotPose(getPose());
   }
 
-  public void slowDrive(boolean on) {
-    if (on) {
+  public void creepModeToggle() {
+    if (creepMode == 1.5) {
       creepMode = 4.5;
     } else {
       creepMode = 1.5;
