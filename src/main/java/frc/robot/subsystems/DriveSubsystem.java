@@ -88,9 +88,11 @@ public class DriveSubsystem extends SubsystemBase {
     return run(() -> {
       // Make the robot move
       double x = -MathUtil.applyDeadband(translationX.getAsDouble(), Operator.driveDeadband);
-      x = Math.pow(x, 3);
-      double y = -MathUtil.applyDeadband(translationY.getAsDouble(), Operator.driveDeadband);
-      y = Math.pow(y, 3);
+      double y = -MathUtil.applyDeadband(translationY.getAsDouble(), Operator.driveDeadband);;
+      double r = Math.sqrt(Math.pow(x,2)+Math.pow(y,2));
+      r = Math.pow(r,3);
+      x = x*r;
+      y = y*r;
       double angle = -MathUtil.applyDeadband(angularRotationX.getAsDouble(), Operator.driveDeadband);
       angle = Math.pow(angle, 3);
       swerveDrive.drive(new Translation2d(y * swerveDrive.getMaximumChassisVelocity() / creepMode,
