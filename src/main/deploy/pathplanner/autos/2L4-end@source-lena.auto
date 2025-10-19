@@ -1,0 +1,79 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "start-to-reef-lena"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "toL4"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "spitCoral"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "downFromL4"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "reef-to-source-lena"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "intake into outtake"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "source-to-reef2-lena"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "toL4"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "spitCoral"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "downFromL4"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "reef2-to-source-lena"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": "lena's-autos",
+  "choreoAuto": false
+}
