@@ -36,7 +36,7 @@ public final class Constants {
     public static final int coralPlaceMotorID4 = 14;  
     public static final double millisToL4 = 2710;   
     public static final double millisDownL4 = 2100;
-    public static final double millisToSpit = 250;
+    public static final double millisToSpit = 500;
     public static final double millisToIntake = 800; 
     public static final double ticksToL1 = 5;
     public static final double ticksToL2 = 17.119016647338867;
