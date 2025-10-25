@@ -39,6 +39,12 @@
           "data": {
             "pathName": "back from center"
           }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "spin"
+          }
         }
       ]
     }

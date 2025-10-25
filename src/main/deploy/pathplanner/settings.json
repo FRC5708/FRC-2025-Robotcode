@@ -9,10 +9,10 @@
     "South"
   ],
   "autoFolders": [
+    "Tests",
+    "L4 to one L1s",
     "L1s",
-    "L4 to two L1s",
-    "Defence",
-    "Tests"
+    "Defence"
   ],
   "defaultMaxVel": 3.0,
   "defaultMaxAccel": 3.0,
