@@ -49,7 +49,7 @@ public class RobotContainer {
     NamedCommands.registerCommand("toL3", new changeSetpoint(m_elevator, 3));
     NamedCommands.registerCommand("toL2", new changeSetpoint(m_elevator, 2));
     NamedCommands.registerCommand("toL1", new changeSetpoint(m_elevator, 0));
-    NamedCommands.registerCommand("shootL1", new changeSetpointoint(m_elevator, 1));
+    NamedCommands.registerCommand("shootL1", new changeSetpoint(m_elevator, 1));
     // NamedCommands.registerCommand("downFromL4", new goToL1_from_L4(m_elevator, 0));
     NamedCommands.registerCommand("intakeCoral", new IntakeCoral(m_coral, m_elevator));
     NamedCommands.registerCommand("spitCoral", new SpitCoral(m_coral, m_elevator));
