@@ -7,7 +7,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "start-to-southeast"
+            "pathName": "start2-to-northeast"
           }
         },
         {
@@ -31,7 +31,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "southeast-to-load"
+            "pathName": "northeast-to-load"
           }
         },
         {
@@ -43,7 +43,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "load-to-southeast"
+            "pathName": "load-to-northwest L1"
           }
         },
         {
@@ -67,43 +67,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "southeast-to-load L1"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "intakeCoral"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "load-to-southwest L1"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "shootL1"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "spitCoral"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "toL2"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "southwest-to-load L1"
+            "pathName": "northwest-to-load L1"
           }
         }
       ]
