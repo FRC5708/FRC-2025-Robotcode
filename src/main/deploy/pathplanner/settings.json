@@ -4,14 +4,16 @@
   "holonomicMode": true,
   "pathFolders": [
     "Center",
-    "Tests",
+    "lena",
     "North",
-    "South"
+    "South",
+    "Tests"
   ],
   "autoFolders": [
+    "Defence",
     "L1s",
     "L4 to two L1s",
-    "Defence",
+    "lena's-autos",
     "Tests"
   ],
   "defaultMaxVel": 3.0,
