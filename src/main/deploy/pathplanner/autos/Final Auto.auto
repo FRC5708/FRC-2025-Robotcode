@@ -13,19 +13,7 @@
         {
           "type": "named",
           "data": {
-            "name": "shootL1"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
             "name": "spitCoral"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "toL4"
           }
         },
         {

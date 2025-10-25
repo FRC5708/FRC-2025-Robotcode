@@ -146,21 +146,36 @@
   "eventMarkers": [
     {
       "name": "toL3",
-      "waypointRelativePos": 6.476733143399772,
+      "waypointRelativePos": 6.522317188983835,
       "endWaypointRelativePos": null,
-      "command": null
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "toL3"
+        }
+      }
     },
     {
       "name": "toL2",
-      "waypointRelativePos": 7.099715099715095,
+      "waypointRelativePos": 7.114909781576446,
       "endWaypointRelativePos": null,
-      "command": null
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "toL2"
+        }
+      }
     },
     {
       "name": "toL1",
-      "waypointRelativePos": 7.190883190883189,
+      "waypointRelativePos": 7.509971509971499,
       "endWaypointRelativePos": null,
-      "command": null
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "toL1"
+        }
+      }
     }
   ],
   "globalConstraints": {
