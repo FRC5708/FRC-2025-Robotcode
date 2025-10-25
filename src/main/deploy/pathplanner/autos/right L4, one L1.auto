@@ -74,6 +74,6 @@
     }
   },
   "resetOdom": true,
-  "folder": "L4 to two L1s",
+  "folder": "L4 to one L1s",
   "choreoAuto": false
 }

@@ -12,9 +12,9 @@
   "autoFolders": [
     "Defence",
     "L1s",
-    "L4 to two L1s",
-    "lena's-autos",
-    "Tests"
+    "L4 to one L1s",
+    "Tests",
+    "lena's-autos"
   ],
   "defaultMaxVel": 3.0,
   "defaultMaxAccel": 3.0,
