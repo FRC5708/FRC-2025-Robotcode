@@ -45,11 +45,11 @@ public class RobotContainer {
     m_coral = new CoralSubsystem();
     // m_sensor = new SensorSubsystem();
 
-    // NamedCommands.registerCommand("toL4", new goToPoint(m_elevator, 3));
-    // NamedCommands.registerCommand("toL3", new goToPoint(m_elevator, 2));
-    // NamedCommands.registerCommand("toL2", new goToPoint(m_elevator, 1));
-    // NamedCommands.registerCommand("toL1", new goToPoint(m_elevator, 0));
-    // NamedCommands.registerCommand("shootL1", new goToPoint(m_elevator, 10));
+    NamedCommands.registerCommand("toL4", new changeSetpoint(m_elevator, 4));
+    NamedCommands.registerCommand("toL3", new changeSetpoint(m_elevator, 3));
+    NamedCommands.registerCommand("toL2", new changeSetpoint(m_elevator, 2));
+    NamedCommands.registerCommand("toL1", new changeSetpoint(m_elevator, 0));
+    NamedCommands.registerCommand("shootL1", new changeSetpointoint(m_elevator, 1));
     // NamedCommands.registerCommand("downFromL4", new goToL1_from_L4(m_elevator, 0));
     NamedCommands.registerCommand("intakeCoral", new IntakeCoral(m_coral, m_elevator));
     NamedCommands.registerCommand("spitCoral", new SpitCoral(m_coral, m_elevator));
